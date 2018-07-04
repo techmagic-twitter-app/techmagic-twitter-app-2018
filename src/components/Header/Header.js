@@ -1,49 +1,41 @@
 
 import React, { Component } from 'react';
 // Firebase config
-import {authRef} from '../../config/firebase';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 // Actions
-import {signIn, signOut} from '../../actions/index';
+import {signIn, signOut, fetchUser} from '../../actions/users';
 
 //styles
 import './Header.css';
 
  class Header extends Component {
-
-    state ={
-        currentUser:''
-      }
     
       componentDidMount(){
-        authRef.onAuthStateChanged((user) => {
-            if (user) {
-                this.setState({currentUser:user});
-            } else {
-                this.setState({currentUser:''})
-            }
-        });
+        this.props.fetchUser();
       }
 
   render() {
     return (
       <header>
-          <h2>{this.state.currentUser.displayName}</h2>
-          {this.state.currentUser?
+          <h2>{this.props.currentUser.displayName}</h2>
+          {this.props.currentUser?
           <button onClick={this.props.signOut}>signOut</button>:
-          <button onClick={this.props.signIn}>signIn</button>
-        }
-
+          <button onClick={this.props.signIn}>signIn</button>}
       </header>
     )
   }
 }
 
+const mapStateToProps = state =>({
+  currentUser : state.user
+})
+
 const mapDispatchToProps = dispatch => bindActionCreators({
     signIn,
-    signOut
+    signOut,
+    fetchUser
   },dispatch)
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
