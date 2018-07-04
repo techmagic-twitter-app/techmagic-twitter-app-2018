@@ -5,6 +5,9 @@ import {sendMessage} from '../../actions/posts';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
+// Styles
+import './Input.css'
+
  class Input extends Component {
 
 state = { 
@@ -34,7 +37,7 @@ sendMsg=()=>{
 
 render() {
 return (
-    <div>
+    <div className="Input">
         <input type="text" onChange={this.setInputVal} value={this.state.post} />
         <button onClick={this.sendMsg}>Send</button>
     </div>

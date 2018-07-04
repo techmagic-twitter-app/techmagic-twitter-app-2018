@@ -1,0 +1,10 @@
+.Post{
+    border-radius: 12px;
+    background: rgb(19, 28, 37);
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.Post .fas{
+    margin-right: 1rem;
+}

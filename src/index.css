@@ -22,6 +22,8 @@
   
   body {
     margin: 0;
+    background-color: rgb(27, 40, 54);
+    color: white;
   }
   
   /**
