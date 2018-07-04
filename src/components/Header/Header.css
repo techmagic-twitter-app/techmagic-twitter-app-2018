@@ -1,0 +1,7 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background: rgb(43, 24, 110);
+    color: aliceblue;
+    padding: 0 1rem;
+}

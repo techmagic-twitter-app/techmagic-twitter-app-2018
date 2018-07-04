@@ -8,6 +8,8 @@ import {bindActionCreators} from 'redux';
 // Actions
 import {signIn, signOut} from '../../actions/index';
 
+//styles
+import './Header.css';
 
  class Header extends Component {
 
@@ -26,7 +28,7 @@ import {signIn, signOut} from '../../actions/index';
       }
 
   render() {
-      console.log(this.state.currentUser)
+      console.log(this.state.currentUser.uid)
     return (
       <header>
           <h2>{this.state.currentUser.displayName}</h2>
