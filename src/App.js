@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // Components
 import Header from './components/Header/Header';
-// import Input from './components/Input/Input'
+import Input from './components/Input/Input'
 
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
     return (
         <div>
           <Header/>
-          {/* <Input/> */}
+          <Input/>
         </div>
     );
   }

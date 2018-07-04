@@ -1,38 +1,51 @@
-// import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-// export default class Input extends Component {
+// Actions
+import {sendMessage} from '../../actions/posts';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-//     state ={ 
-//         userInput:'',
-//         posts:[]
-//     }
+ class Input extends Component {
 
-//     setInput =(event)=>{
-//         event.preventDefault();
-//         this.setState({
-//             userInput:event.target.value
-//         })
-//     }
+state = { 
+    post:'',
+}
 
-//     sendMsg=()=>{
-//         let newPosts = [...this.state.posts];
-//       // Adding value to state
-//       newPosts.push(this.userInput);
-//       this.setState({
-//         posts:newPosts,
-//         userInput:''
-//       })
-//     }
 
-//   render() {
-//     return (
-//       <div>
-//             <input type="text"
-//             onChange={this.setInput}
-//             value={this.state.userInput}/>
-//             <button onClick={this.sendMsg}>Send</button>
-//         <div>{this.state.posts[0]}</div>
-//       </div>
-//     )
-//   }
-// }
+
+setInputVal=(event)=>{
+    this.setState({
+        post:event.target.value
+    })
+}
+
+sendMsg=()=>{
+    this.props.sendMessage({
+        post:this.state.post,
+        likes:0,
+        date:Date.now()
+    })
+    this.setState({
+        post:''
+    })
+}
+
+
+
+render() {
+return (
+    <div>
+        <input type="text" onChange={this.setInputVal} value={this.state.post} />
+        <button onClick={this.sendMsg}>Send</button>
+    </div>
+    )
+}
+
+
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    sendMessage
+},dispatch)
+
+export default connect(null,mapDispatchToProps)(Input);

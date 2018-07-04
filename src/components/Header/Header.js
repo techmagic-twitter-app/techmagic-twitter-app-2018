@@ -28,7 +28,6 @@ import './Header.css';
       }
 
   render() {
-      console.log(this.state.currentUser.uid)
     return (
       <header>
           <h2>{this.state.currentUser.displayName}</h2>
