@@ -1,12 +1,14 @@
 import React from 'react';
 
+// styles
+import './Post.css'
+
 export default ({currentPost}) => {
   return (
-    <li>
-      <h3>Post:{currentPost.post}</h3>
-      <p>Date:{currentPost.date}</p>
-      <em>likes:{currentPost.likes}</em>
-      <hr/>
+    <li className="Post">
+      <h3>{currentPost.post}</h3>
+      <p>date:{currentPost.date}</p>
+      <p><i className="fas fa-heart"></i>{currentPost.likes}</p>
     </li>
   )
 }

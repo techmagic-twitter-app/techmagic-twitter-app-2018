@@ -6,7 +6,10 @@ import { bindActionCreators } from 'redux';
 import {fetchPost} from '../../actions/posts';
 
 // Components
-import Post from './Post/Post'
+import Post from './Post/Post';
+
+// styles
+import './PostsList.css'
 
  class PostsList extends Component {
 
@@ -21,7 +24,7 @@ import Post from './Post/Post'
 
   render() {
     return (
-      <ul>
+      <ul className="PostsList">
         {this.renderPosts()}
       </ul>
     )
