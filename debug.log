@@ -34,3 +34,6 @@
 [0704/172652.416:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files (x86)\temp\settings.dat: Отказано в доступе. (0x5)
 [0704/172652.454:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: Канал был закрыт. (0x6D)
 [0704/172652.456:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files (x86)\temp\settings.dat: Отказано в доступе. (0x5)
+[0705/153654.064:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files (x86)\temp\settings.dat: Отказано в доступе. (0x5)
+[0705/153654.064:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: Канал был закрыт. (0x6D)
+[0705/153654.064:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files (x86)\temp\settings.dat: Отказано в доступе. (0x5)
