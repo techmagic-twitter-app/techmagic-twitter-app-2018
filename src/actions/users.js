@@ -8,7 +8,7 @@ export const fetchUser = () => dispatch => {
       let currentUserUid = user.uid;
       usersRef.once('value').then(snapshot => {
         Object.values(snapshot.val())
-          .map((item, index, arr) => {
+          .forEach((item, index, arr) => {
           if(currentUserUid === item.uid) {
             sameUsers++;
           } else if (sameUsers===0 && index===arr.length-1){
