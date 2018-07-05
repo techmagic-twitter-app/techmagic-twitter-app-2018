@@ -1,26 +1,12 @@
-import { authRef, provider } from '../config/firebase';
-import { FETCH_USER } from './types';
+import { usersRef } from '../config/firebase';
+import { FETCH_USERS } from './types';
 
-export const fetchUser = () => dispatch => {
-    authRef.onAuthStateChanged(user => {
-      if (user) {
-        dispatch({
-          type: FETCH_USER,
-          payload: user
-        });
-      } else {
-        dispatch({
-          type: FETCH_USER,
-          payload: ''
-        });
-      }
+
+export const fetchUsers = () => async dispatch => {
+  usersRef.on("value", snapshot => {
+    dispatch({
+      type: FETCH_USERS,
+      payload: snapshot.val()
     });
-  };
-
-  export const signIn = () => dispatch =>{
-    authRef.signInWithPopup(provider)
-  }
-  
-  export const signOut = () => dispatch =>{
-    authRef.signOut();
-  }
+  })
+}
