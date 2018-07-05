@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 // Actions
-import {signIn, signOut, fetchUser} from '../../actions/users';
+import {signIn, signOut, fetchUser} from '../../actions/user';
 
 //styles
 import './Header.css';
