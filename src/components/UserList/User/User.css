@@ -1,6 +1,10 @@
 .user-elem {
     display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid black;
-    margin: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+}
+
+.user-elem:last-child {
+    margin-bottom: 0;
 }
