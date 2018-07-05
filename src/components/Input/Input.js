@@ -15,7 +15,6 @@ state = {
 }
 
 
-
 setInputVal=(event)=>{
     this.setState({
         post:event.target.value
@@ -23,10 +22,15 @@ setInputVal=(event)=>{
 }
 
 sendMsg=()=>{
+    const { user } = this.props;
+    const { post } = this.state;
     this.props.sendMessage({
-        post:this.state.post,
-        likes:0,
-        date:Date.now()
+        post:  post,
+        likes: 0,
+        date: Date.now(),
+        userId: user.uid,
+        userName: user.displayName,
+        userPhoto: user.photoURL
     })
     this.setState({
         post:''
@@ -36,19 +40,23 @@ sendMsg=()=>{
 
 
 render() {
-return (
-    <div className="Input">
-        <input type="text" onChange={this.setInputVal} value={this.state.post} />
-        <button onClick={this.sendMsg}>Send</button>
-    </div>
-    )
-}
+    const { user } = this.props;
+    return (
+        user?
+        <div className="Input">
+            <input type="text" onChange={this.setInputVal} value={this.state.post} />
+            <button onClick={this.sendMsg}>Send</button>
+        </div>: null
+)}
 
 
 }
-
+const mapStateToProps = state =>({
+    user: state.user
+})
+  
 const mapDispatchToProps = dispatch => bindActionCreators({
     sendMessage
 },dispatch)
 
-export default connect(null,mapDispatchToProps)(Input);
+export default connect(mapStateToProps, mapDispatchToProps)(Input);

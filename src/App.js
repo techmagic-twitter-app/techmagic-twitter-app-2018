@@ -18,8 +18,8 @@ class App extends Component {
               <UserList/>
             </div>
             <div className="wall">
-              <PostsList/>
               <Input/>
+              <PostsList/>
             </div>
           </div>
         </div>
@@ -28,3 +28,4 @@ class App extends Component {
 }
 
 export default App;
+
