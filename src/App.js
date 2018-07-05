@@ -14,10 +14,12 @@ class App extends Component {
         <div className="container">
           <Header/>
           <div className="main">
-            <UserList/>
-            <div>
-              <Input/>
+            <div className="users">
+              <UserList/>
+            </div>
+            <div className="wall">
               <PostsList/>
+              <Input/>
             </div>
           </div>
         </div>

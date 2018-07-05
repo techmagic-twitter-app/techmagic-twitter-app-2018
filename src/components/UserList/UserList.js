@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
 import User from './User/User';
@@ -30,15 +30,15 @@ class UserList extends Component {
     render () {
         console.log(this.props.users);
         return (
-            <div>{this.props.user?
-                <div className="my-block">
-                <img src={this.props.user.photoURL} alt="" width="50"/>
+            <Fragment>{this.props.user?
+                <div className="UserList-user">
+                <img src={this.props.user.photoURL} alt="" width="100"/>
                 <p>{this.props.user.displayName}</p>
                 </div>: 
                 null
             }
-                <ul>{this.renderUsers()}</ul>
-            </div>
+                <ul className="UserList-list">{this.renderUsers()}</ul>
+            </Fragment>
         );
     }
 }

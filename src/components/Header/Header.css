@@ -5,6 +5,7 @@ header{
     background: rgb(19, 28, 37);
     color: white;
     padding:2rem;
+    text-transform: capitalize;
 }
 
 header h2{

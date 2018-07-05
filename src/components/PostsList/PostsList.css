@@ -1,8 +1,7 @@
 .PostsList{
     display: block;
-    max-width: 80%;
-    margin: 0 auto;
-    padding: 2rem;
     list-style-type: none;
+    margin-top: 0;
+    padding: 0;
 }
 
