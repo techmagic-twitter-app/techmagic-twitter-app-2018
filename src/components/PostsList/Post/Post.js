@@ -19,6 +19,7 @@ class Post extends Component {
         <h3>{currentPost.post}</h3>
         <p>{this.dateForma(currentPost.date)}</p>
         <p className="Post-like"><i className="fas fa-heart"></i>{currentPost.likes}</p>
+        <button className="Post-delete">╳</button>
       </li>
     )
   }

@@ -6,3 +6,11 @@ body {
   color: white;
   font-family: 'Roboto', sans-serif;
 }
+
+button{
+  transition: .3s
+}
+
+button:hover{
+  opacity: 0.8
+}
