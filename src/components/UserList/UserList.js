@@ -6,6 +6,7 @@ import './UserList.css';
 
 // Actions
 import {fetchUsers} from '../../actions/users';
+import {fetchUid} from '../../actions/uid';
 
 class UserList extends Component {
 
@@ -21,14 +22,19 @@ class UserList extends Component {
     //     console.log(this.props.users);
     //     return this.props.users.map((user, index) => <User key={index} name={user.username} photo={user.photo} /> )
     // }
+    uidIntoState = (uid) => {
+        //send uid into action
+        console.log('click');
+        this.props.fetchUid(uid);
+    }
 
     renderUsers= () =>{
         const usersFromDB = Object.values(this.props.users);
-        return usersFromDB.map((user,index)=><User key={index} name={user.username} photo={user.photo} /> )
+        return usersFromDB.map((user,index)=><User key={index} name={user.username} photo={user.photo} uid={user.uid} uidIntoState={this.uidIntoState} /> )
       }
 
     render () {
-        console.log(this.props.users);
+        //console.log(this.props.users);
         return (
             <Fragment>{this.props.user?
                 <div className="UserList-user">
@@ -49,7 +55,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    fetchUsers
+    fetchUsers,
+    fetchUid
 },dispatch);
 
 export default connect(mapStateToProps,mapDispatchToProps)(UserList);

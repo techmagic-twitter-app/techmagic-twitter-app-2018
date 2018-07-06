@@ -19,7 +19,9 @@ import './PostsList.css'
   }
 
   renderPosts= () =>{
+    //console.log(this.props.posts.usersPosts)
     return this.props.posts.usersPosts
+    .filter((post) => post.userId === this.props.uid)
     .map((post,index)=><Post currentPost={post}  key={index}/>)
   }
   
@@ -33,7 +35,9 @@ import './PostsList.css'
 }
 
 const mapStateToProps = state =>({
-  posts: state.posts
+  posts: state.posts,
+  user: state.user,
+  uid: state.uid
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
