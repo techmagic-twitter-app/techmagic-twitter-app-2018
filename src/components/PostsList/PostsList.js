@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -18,10 +19,10 @@ import './PostsList.css'
   }
 
   renderPosts= () =>{
-    const postsFromDB = Object.values(this.props.posts);
-    return postsFromDB.map((post,index)=><Post currentPost={post} key={index}/>)
+    return this.props.posts.usersPosts
+    .map((post,index)=><Post currentPost={post}  key={index}/>)
   }
-
+  
   render() {
     return (
       <ul className="PostsList">
@@ -32,7 +33,7 @@ import './PostsList.css'
 }
 
 const mapStateToProps = state =>({
-  posts: state.post
+  posts: state.posts
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
