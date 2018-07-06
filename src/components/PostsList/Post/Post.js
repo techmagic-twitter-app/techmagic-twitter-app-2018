@@ -5,18 +5,20 @@ import './Post.css';
 
 class Post extends Component {
 
-  dateForma = (data )=> moment(data).format("MMM Do YY");
+  dateForma = (data )=> moment(data).format('LLL');
 
   render() {
  
     const { currentPost } = this.props
       return (
       <li className="Post">
-      <img src={currentPost.userPhoto} alt="userPhoto" width="50" height="50"/>
-        <h4>{currentPost.userName}</h4>
+        <div className="Post-user">
+          <img src={currentPost.userPhoto} alt="userPhoto" width="80"/>
+          <h2>{currentPost.userName}</h2>
+        </div>
         <h3>{currentPost.post}</h3>
-        <p>date:{this.dateForma(currentPost.date)}</p>
-        <p><i className="fas fa-heart"></i>{currentPost.likes}</p>
+        <p>{this.dateForma(currentPost.date)}</p>
+        <p className="Post-like"><i className="fas fa-heart"></i>{currentPost.likes}</p>
       </li>
     )
   }

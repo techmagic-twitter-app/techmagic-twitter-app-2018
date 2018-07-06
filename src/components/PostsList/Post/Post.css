@@ -1,10 +1,23 @@
 .Post{
     border-radius: 12px;
     background: rgb(19, 28, 37);
-    padding: 1rem 2rem;
+    padding:2rem;
     margin-bottom: 2rem;
 }
 
+.Post-user{
+    display: flex;
+    align-items: center;
+}
+
+.Post-like{
+    margin-bottom: 0;
+}
+
+.Post img{
+    margin-right: 1rem;
+    border-radius: 50px;
+}
 
 .Post .fas{
     margin-right: 1rem;
