@@ -16,7 +16,6 @@ import './PostsList.css'
 
   componentDidMount(){
     this.props.fetchPost();
-    console.log(this.props.post.usersPosts)
   }
 
   renderPosts= () =>{

@@ -10,7 +10,9 @@ export default (state = initialState, action) => {
     // get post by object values
       // console.log(action.payload)
       const posts = Object.values(action.payload)
-      console.log(posts)
+      // get posts uid
+      // console.log(Object.keys(action.payload))
+      // const postUID = Object.keys(action.payload)
       return {
         ...state,
         usersPosts:[...posts],
