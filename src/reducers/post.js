@@ -10,6 +10,7 @@ export default (state = initialState, action) => {
     // get post by object values
       // console.log(action.payload)
       const posts = Object.values(action.payload)
+      console.log(posts)
       return {
         ...state,
         usersPosts:[...posts],
