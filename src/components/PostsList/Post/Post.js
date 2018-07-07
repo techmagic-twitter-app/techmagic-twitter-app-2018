@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux'
+
+// Date lib
 import moment from 'moment';
 
+// Actions
+import {removePost} from '../../../actions/posts'
+
+// Styles
 import './Post.css';
+
 
 class Post extends Component {
 
+  // Format date
   dateForma = (data )=> moment(data).format('LLL');
 
+  // Remove post
+  removePostHandler = removePostId => {
+    // console.log(removePostId)
+    const {removePost} = this.props
+    removePost(removePostId)
+  };
+
   render() {
- 
     const { currentPost } = this.props
       return (
       <li className="Post">
@@ -19,11 +35,16 @@ class Post extends Component {
         <h3>{currentPost.post}</h3>
         <p>{this.dateForma(currentPost.date)}</p>
         <p className="Post-like"><i className="fas fa-heart"></i>{currentPost.likes}</p>
-        <button className="Post-delete">╳</button>
+        <button className="Post-delete" onClick={()=>this.removePostHandler(currentPost.postId)} >╳</button>
       </li>
     )
   }
     
 }
-export default Post;
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  removePost
+},dispatch)
+
+export default connect(null, mapDispatchToProps)(Post);
 

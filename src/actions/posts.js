@@ -14,3 +14,10 @@ export const fetchPost = () => async dispatch => {
       });
     });
   };
+
+
+  export const removePost = (postId) => async dispatch => {
+    postsRef
+      .child(postId)
+      .remove();
+  };

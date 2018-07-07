@@ -1,22 +1,9 @@
 import { FETCH_POSTS } from '../actions/types';
 
-const initialState = {
-  usersPosts:[]
-}
-
-export default (state = initialState, action) => {
+export default (state = "", action) => {
   switch (action.type) {
     case FETCH_POSTS:
-    // get post by object values
-      // console.log(action.payload)
-      const posts = Object.values(action.payload)
-      // get posts uid
-      // console.log(Object.keys(action.payload))
-      // const postUID = Object.keys(action.payload)
-      return {
-        ...state,
-        usersPosts:[...posts],
-      }
+      return action.payload || {};
     default:
       return state;
   }
