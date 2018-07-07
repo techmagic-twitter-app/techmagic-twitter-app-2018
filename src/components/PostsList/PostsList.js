@@ -10,7 +10,7 @@ import {fetchPost} from '../../actions/posts';
 import Post from './Post/Post';
 
 // styles
-import './PostsList.css'
+import './PostsList.css';
 
  class PostsList extends Component {
 
@@ -18,11 +18,19 @@ import './PostsList.css'
     this.props.fetchPost();
   }
 
-  renderPosts= () =>{
-    //console.log(this.props.posts.usersPosts)
-    return this.props.posts.usersPosts
-    .filter((post) => post.userId === this.props.uid)
-    .map((post,index)=><Post currentPost={post}  key={index}/>)
+  renderPosts= () => {
+    if (this.props.uid) {
+      return this.props.posts.usersPosts
+        .filter((post) => post.userId === this.props.uid)
+        .map((post,index)=><Post currentPost={post}  key={index}/>);
+    } else if (!this.props.uid && !this.props.user) {
+      return this.props.posts.usersPosts
+        .map((post,index)=><Post currentPost={post}  key={index}/>);
+    } else if (!this.props.uid && this.props.user) {
+      return this.props.posts.usersPosts
+        .filter((post) => post.userId === this.props.user.uid)
+        .map((post,index)=><Post currentPost={post}  key={index}/>);
+    }
   }
   
   render() {
@@ -38,11 +46,11 @@ const mapStateToProps = state =>({
   posts: state.posts,
   user: state.user,
   uid: state.uid
-})
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchPost
-},dispatch)
+},dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsList);
 
