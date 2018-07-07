@@ -20,24 +20,29 @@ class UserList extends Component {
 
     uidIntoState = (uid) => {
         //send uid into action
-        console.log('click');
+        console.log('click', uid);
         this.props.fetchUid(uid);
     }
 
     renderUsers= () =>{
         const usersFromDB = Object.values(this.props.users);
-        return usersFromDB.map((user,index)=><User key={index} name={user.username} photo={user.photo} uid={user.uid} uidIntoState={this.uidIntoState} /> )
+        return usersFromDB.map(user=>{
+            return <User
+                    key={user.uid}
+                    user={user}
+                    uidIntoState={this.uidIntoState}/>})
       }
 
     render () {
         return (
-            <Fragment>{this.props.user?
+            <Fragment>
+                {this.props.user?
                 <div className="UserList-user">
                 <img src={this.props.user.photoURL} alt="" width="100"/>
                 <p>{this.props.user.displayName}</p>
-                </div>: 
-                null
-            }
+                </div>
+                :
+                null}
                 <ul className="UserList-list">{this.renderUsers()}</ul>
             </Fragment>
         );
