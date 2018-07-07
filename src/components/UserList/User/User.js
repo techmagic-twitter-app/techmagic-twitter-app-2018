@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './User.css';
 
-export default ({name, photo, uid, uidIntoState}) => {
-    return (
-        <li className="user-elem" >
-                <img src={photo} alt="userPhoto" width="50" height="50"/>
-                <p onClick={()=>uidIntoState(uid)}>{name}</p>
-        </li>
-    )
+class User extends Component {
+
+//       // Remove post
+//   removePostHandler = removePostId => {
+//     // console.log(removePostId)
+//     const {removePost} = this.props
+//     removePost(removePostId)
+//   };
+
+    render(){
+        const { user, uidIntoState } = this.props;
+        return (
+            <li className="user-elem"
+                onClick={()=>uidIntoState(user.uid)}>
+                    <img src={user.photo} alt="userPhoto" width="50"/>
+                    <p>{user.username}</p>
+            </li>
+        )
+    }
+
 }
+
+export default User

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
-// Actions
-import {sendMessage} from '../../actions/posts';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-
+// Actions
+import {sendMessage} from '../../actions/posts';
 // Styles
 import './Input.css'
 
@@ -21,6 +19,7 @@ setInputVal=(event)=>{
         })
 }
 
+
 sendMsg=()=>{
     const { user } = this.props;
     const { post } = this.state;
@@ -33,14 +32,14 @@ sendMsg=()=>{
             userName: user.displayName,
             userPhoto: user.photoURL
         });
+        // clearing input
+        this.setState({
+            post:''
+        })
     } else {
         alert('put smth in!');
     }
-    this.setState({
-        post:''
-    })
 }
-
 
 
 render() {
@@ -50,7 +49,7 @@ render() {
         <div className="Input">
             <input type="text" onChange={this.setInputVal} value={this.state.post} />
             <button onClick={this.sendMsg}>Send</button>
-        </div>: null
+        </div> : null
     );
 }
 
@@ -60,8 +59,10 @@ const mapStateToProps = state =>({
     user: state.user
 });
   
+
 const mapDispatchToProps = dispatch => bindActionCreators({
     sendMessage
 },dispatch);
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input);
