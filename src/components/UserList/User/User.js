@@ -3,13 +3,6 @@ import './User.css';
 
 class User extends Component {
 
-//       // Remove post
-//   removePostHandler = removePostId => {
-//     // console.log(removePostId)
-//     const {removePost} = this.props
-//     removePost(removePostId)
-//   };
-
     render(){
         const { user, uidIntoState } = this.props;
         return (
@@ -23,4 +16,4 @@ class User extends Component {
 
 }
 
-export default User
+export default User;
