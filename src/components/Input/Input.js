@@ -16,22 +16,26 @@ state = {
 
 
 setInputVal=(event)=>{
-    this.setState({
-        post:event.target.value
-    })
+        this.setState({
+            post:event.target.value
+        })
 }
 
 sendMsg=()=>{
     const { user } = this.props;
     const { post } = this.state;
-    this.props.sendMessage({
-        post:  post,
-        likes: 0,
-        date: Date.now(),
-        userId: user.uid,
-        userName: user.displayName,
-        userPhoto: user.photoURL
-    })
+    if(post) {
+        this.props.sendMessage({
+            post:  post,
+            likes: 0,
+            date: Date.now(),
+            userId: user.uid,
+            userName: user.displayName,
+            userPhoto: user.photoURL
+        });
+    } else {
+        alert('put smth in!');
+    }
     this.setState({
         post:''
     })
@@ -47,16 +51,17 @@ render() {
             <input type="text" onChange={this.setInputVal} value={this.state.post} />
             <button onClick={this.sendMsg}>Send</button>
         </div>: null
-)}
+    );
+}
 
 
 }
 const mapStateToProps = state =>({
     user: state.user
-})
+});
   
 const mapDispatchToProps = dispatch => bindActionCreators({
     sendMessage
-},dispatch)
+},dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Input);

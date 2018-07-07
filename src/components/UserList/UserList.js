@@ -18,10 +18,6 @@ class UserList extends Component {
         this.props.fetchUsers()
     }
 
-    // renderUsers = () => {
-    //     console.log(this.props.users);
-    //     return this.props.users.map((user, index) => <User key={index} name={user.username} photo={user.photo} /> )
-    // }
     uidIntoState = (uid) => {
         //send uid into action
         console.log('click');
@@ -34,7 +30,6 @@ class UserList extends Component {
       }
 
     render () {
-        //console.log(this.props.users);
         return (
             <Fragment>{this.props.user?
                 <div className="UserList-user">
