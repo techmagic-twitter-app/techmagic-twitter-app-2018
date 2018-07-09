@@ -45,23 +45,14 @@ sendMsg=(event)=>{
 }
 
 
-// render() {
-//     const { user } = this.props;
-//     return (
-//         user?
-//         <div className="Input">
-//             <input type="text" onChange={this.setInputVal} value={this.state.post} />
-//             <button onClick={this.sendMsg}>Send</button>
-//         </div> : null
-//     );
-// }
+
 render() {
     const { 
         user , 
         selectedUser
     } = this.props;
     return (
-        user?
+        user && selectedUser===user.uid ?
         <form
             className="Input"
             onSubmit={this.sendMsg}>
