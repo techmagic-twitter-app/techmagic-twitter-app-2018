@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux'
 // Date lib
 import moment from 'moment';
 // Actions
-import {removePost} from '../../../actions/posts'
+import {removePost, addLike} from '../../../actions/posts'
 // Styles
 import './Post.css';
 
@@ -22,6 +22,10 @@ class Post extends Component {
     removePost(removePostId)
   };
 
+  addLikeHandler = (id, likes) => {
+    const {addLike} = this.props;
+    addLike(id, likes);
+  }
 
   render() {
     const { currentPost, user } = this.props;
@@ -33,8 +37,8 @@ class Post extends Component {
           </div>
           <h3>{currentPost.post}</h3>
           <p>{this.dateForma(currentPost.date)}</p>
-          <p className="Post-like"><i className="fas fa-heart"></i>{currentPost.likes}</p>
-          {user?
+          <p className="Post-like" onClick={()=>this.addLikeHandler(currentPost.postId, currentPost.likes)}><i className="fas fa-heart"></i>{currentPost.likes}</p>
+          {user && user.uid === currentPost.userId ?
             <button className="Post-delete" onClick={()=>this.removePostHandler(currentPost.postId)} >╳</button>
             :null}
         </li>
@@ -47,7 +51,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  removePost
+  removePost,
+  addLike
 },dispatch)
 
 

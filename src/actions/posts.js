@@ -2,7 +2,7 @@ import { postsRef } from '../config/firebase';
 import { FETCH_POSTS } from './types'
 
 export const sendMessage = (newPost)=> async dispatch =>{
-    postsRef.push().set(newPost)
+    postsRef.push().set(newPost);
 }
 
 
@@ -21,3 +21,11 @@ export const fetchPost = () => async dispatch => {
       .child(postId)
       .remove();
   };
+
+  export const addLike = (id, likes) => async dispatch => {
+    let addedLikes = likes+1;
+    console.log(id);
+    postsRef
+      .child(id)
+      .update({likes: addedLikes});
+  }
