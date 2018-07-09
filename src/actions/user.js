@@ -21,14 +21,9 @@ export const fetchUser = () => dispatch => {
         payload: user
       });
     }
-    else {
-      dispatch({
-        type: FETCH_USER,
-        payload: ''
-      });
-    }
   });
 };
+
 
 
 
