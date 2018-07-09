@@ -10,6 +10,7 @@
 .UserList-user p{
     margin-bottom: 0;
     font-size: 1.4rem;
+    cursor: pointer;
 }
 
 .UserList-list{
