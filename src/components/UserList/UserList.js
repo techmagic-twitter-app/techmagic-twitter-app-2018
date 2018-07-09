@@ -27,10 +27,15 @@ class UserList extends Component {
     renderUsers= () =>{
         const usersFromDB = Object.values(this.props.users);
         return usersFromDB.map(user=>{
+            if (user.uid === this.props.user.uid) {
+                //do not render logged in user
+                return null;
+            } else {
             return <User
                     key={user.uid}
                     user={user}
-                    uidIntoState={this.uidIntoState}/>})
+                    uidIntoState={this.uidIntoState}/>}
+            })
       }
 
     render () {
