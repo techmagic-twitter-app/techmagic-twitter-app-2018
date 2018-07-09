@@ -1,5 +1,5 @@
 import { authRef, usersRef, provider } from '../config/firebase';
-import { FETCH_USER } from './types';
+import { FETCH_USER,FETCH_UID } from './types';
 
 export const fetchUser = () => dispatch => {
   authRef.onAuthStateChanged(user => {
@@ -19,6 +19,10 @@ export const fetchUser = () => dispatch => {
       dispatch({
         type: FETCH_USER,
         payload: user
+      });
+      dispatch({
+        type: FETCH_UID,
+        payload: user.uid
       });
     }
     else{
