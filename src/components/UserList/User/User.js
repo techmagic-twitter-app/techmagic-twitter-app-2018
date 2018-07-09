@@ -8,7 +8,10 @@ class User extends Component {
         return (
             <li className="user-elem"
                 onClick={()=>uidIntoState(user.uid)}>
-                    <img src={user.photo} alt="userPhoto" width="50"/>
+                    <img
+                    src={user.photo}
+                    alt="userPhoto"
+                    width="50"/>
                     <p>{user.username}</p>
             </li>
         )

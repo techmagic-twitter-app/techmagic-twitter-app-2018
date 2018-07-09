@@ -32,14 +32,23 @@ class Post extends Component {
       return (
         <li className="Post">
           <div className="Post-user">
-            <img src={currentPost.userPhoto} alt="userPhoto" width="80"/>
+            <img
+            src={currentPost.userPhoto}
+            alt="userPhoto" width="80"/>
             <h2>{currentPost.userName}</h2>
           </div>
           <h3>{currentPost.post}</h3>
           <p>{this.dateForma(currentPost.date)}</p>
-          <p className="Post-like" onClick={()=>this.addLikeHandler(currentPost.postId, currentPost.likes)}><i className="fas fa-heart"></i>{currentPost.likes}</p>
+          <p
+          className="Post-like"
+          onClick={()=>this.addLikeHandler(currentPost.postId, currentPost.likes)}>
+            <i className="fas fa-heart"></i>
+            {currentPost.likes}
+          </p>
           {user && user.uid === currentPost.userId ?
-            <button className="Post-delete" onClick={()=>this.removePostHandler(currentPost.postId)} >╳</button>
+            <button
+              className="Post-delete"
+              onClick={()=>this.removePostHandler(currentPost.postId)}>╳</button>
             :null}
         </li>
     )
