@@ -22,7 +22,8 @@ setInputVal=(event)=>{
 }
 
 
-sendMsg=()=>{
+sendMsg=(event)=>{
+    event.preventDefault();
     const { user } = this.props;
     const { post } = this.state;
     if(post) {
@@ -60,11 +61,15 @@ render() {
         selectedUser
     } = this.props;
     return (
-        user && selectedUser===user.uid ?
-        <div className="Input">
-            <input type="text" onChange={this.setInputVal} value={this.state.post} />
-            <button onClick={this.sendMsg}>Send</button>
-        </div> : null
+        user?
+        <form
+            className="Input"
+            onSubmit={this.sendMsg}>
+            <input type="text"
+            onChange={this.setInputVal}
+            value={this.state.post} />
+            <button>Send</button>
+        </form> : null
     );
 }
 

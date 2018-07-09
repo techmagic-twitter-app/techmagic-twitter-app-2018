@@ -43,12 +43,14 @@ class UserList extends Component {
             <Fragment>
                 {this.props.user?
                 <div className="UserList-user">
-                <img src={this.props.user.photoURL} alt="" width="100"/>
+                <img src={this.props.user.photoURL} alt={this.props.user.displayName} width="100"/>
                 <p onClick={()=>this.uidIntoState(this.props.user.uid)}>{this.props.user.displayName}</p>
                 </div>
                 :
                 null}
-                <ul className="UserList-list">{this.renderUsers()}</ul>
+                <ul className="UserList-list">
+                    {this.renderUsers()}
+                </ul>
             </Fragment>
         );
     }
