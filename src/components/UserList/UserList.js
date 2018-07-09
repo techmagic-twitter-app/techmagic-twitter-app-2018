@@ -39,7 +39,7 @@ class UserList extends Component {
                 {this.props.user?
                 <div className="UserList-user">
                 <img src={this.props.user.photoURL} alt="" width="100"/>
-                <p>{this.props.user.displayName}</p>
+                <p onClick={()=>this.uidIntoState(this.props.user.uid)}>{this.props.user.displayName}</p>
                 </div>
                 :
                 null}
