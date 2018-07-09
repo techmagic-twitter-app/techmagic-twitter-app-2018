@@ -29,7 +29,7 @@ import './PostsList.css';
       return usersPosts
         .filter((post) => post.userId === this.props.uid)
         .map((post)=><Post currentPost={post}  key={post.postId}/>);
-    } else if (!this.props.uid && !this.props.user) {
+    } else if (!this.props.uid) {
       return usersPosts
         .map((post)=><Post currentPost={post}  key={post.postId}/>);
     } else if (!this.props.uid && this.props.user) {

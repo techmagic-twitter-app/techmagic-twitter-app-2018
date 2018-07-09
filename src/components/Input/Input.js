@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+
 // Actions
 import {sendMessage} from '../../actions/posts';
+import {fetchUid} from '../../actions/uid';
 // Styles
 import './Input.css'
 
@@ -43,8 +45,21 @@ sendMsg=(event)=>{
 }
 
 
+// render() {
+//     const { user } = this.props;
+//     return (
+//         user?
+//         <div className="Input">
+//             <input type="text" onChange={this.setInputVal} value={this.state.post} />
+//             <button onClick={this.sendMsg}>Send</button>
+//         </div> : null
+//     );
+// }
 render() {
-    const { user } = this.props;
+    const { 
+        user , 
+        selectedUser
+    } = this.props;
     return (
         user?
         <form
@@ -61,12 +76,14 @@ render() {
 
 }
 const mapStateToProps = state =>({
-    user: state.user
+    user: state.user,
+    selectedUser: state.uid
 });
   
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    sendMessage
+    sendMessage,
+    fetchUid
 },dispatch);
 
 
