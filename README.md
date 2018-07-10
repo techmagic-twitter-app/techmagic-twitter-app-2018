@@ -1,4 +1,5 @@
 # techmagic-twitter-app-2018
+![preview](https://imgur.com/a/zBiocvc)
 ## Begin:
 ### clone or dowload this project.
 #### After clone use in your terminal next command:
