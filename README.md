@@ -7,4 +7,4 @@
 ## Usage App:
 * as user you can log in by google acount
 * as user you can post or read another post users
-* as user you like your posts or users posts
+* as user you can like your posts or users posts
