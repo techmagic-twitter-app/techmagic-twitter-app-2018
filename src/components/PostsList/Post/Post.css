@@ -12,6 +12,7 @@
 
 .Post-like{
     margin-bottom: 0;
+    cursor: pointer;
 }
 
 .Post img{

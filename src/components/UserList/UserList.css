@@ -5,12 +5,12 @@
     margin-bottom: 2rem;
     text-transform: capitalize;
     text-align: center;
+    cursor: pointer;
 }
 
 .UserList-user p{
     margin-bottom: 0;
     font-size: 1.4rem;
-    cursor: pointer;
 }
 
 .UserList-list{
@@ -19,6 +19,7 @@
     padding:1.5rem;
     margin: 0;
 }
+
 
 .UserList-user img{
     border-radius: 50%;
