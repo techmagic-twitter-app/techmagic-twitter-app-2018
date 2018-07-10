@@ -10,10 +10,6 @@ import {fetchUid} from '../../actions/uid';
 
 class UserList extends Component {
 
-    state = {
-        usersArr: []
-    };
-
     componentDidMount () {
         this.props.fetchUsers()
     }
