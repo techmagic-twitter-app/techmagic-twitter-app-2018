@@ -52,7 +52,7 @@ class UserList extends Component {
                 </div>
                 :
                 null}
-                {this.props.users.length?
+                {Object.values(this.props.users).length?
                 <ul className="UserList-list">
                     {this.renderUsers()}
                 </ul>:
