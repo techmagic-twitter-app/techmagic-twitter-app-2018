@@ -17,7 +17,6 @@ class Post extends Component {
 
   // Remove post
   removePostHandler = removePostId => {
-    // console.log(removePostId)
     const {removePost} = this.props
     removePost(removePostId)
   };

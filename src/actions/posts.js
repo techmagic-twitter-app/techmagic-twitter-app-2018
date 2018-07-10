@@ -24,7 +24,6 @@ export const fetchPost = () => async dispatch => {
 
   export const addLike = (id, likes) => async dispatch => {
     let addedLikes = likes+1;
-    console.log(id);
     postsRef
       .child(id)
       .update({likes: addedLikes});

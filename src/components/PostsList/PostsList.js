@@ -18,23 +18,23 @@ import './PostsList.css';
 
 
   renderPosts= () => {
-    const {posts} = this.props;
+    const {posts, uid, user} = this.props;
     // adding postId to usersPosts array
     let usersPosts = _.map(posts, (posts, postUID) => {
       posts.postId = postUID;
       return posts;
     });
 
-    if (this.props.uid) {
+    if (uid) {
       return usersPosts
-        .filter((post) => post.userId === this.props.uid)
+        .filter((post) => post.userId === uid)
         .map((post)=><Post currentPost={post}  key={post.postId}/>);
-    } else if (!this.props.uid) {
+    } else if (!uid) {
       return usersPosts
         .map((post)=><Post currentPost={post}  key={post.postId}/>);
-    } else if (!this.props.uid && this.props.user) {
+    } else if (!uid && user) {
       return usersPosts
-        .filter((post) => post.userId === this.props.user.uid)
+        .filter((post) => post.userId === user.uid)
         .map((post)=><Post currentPost={post}  key={post.postId}/>);
     } 
   }

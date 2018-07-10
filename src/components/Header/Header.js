@@ -20,12 +20,13 @@ import './Header.css';
   }
 
   render() {
+    const {currentUser, signIn, signOut} = this.props;
     return (
       <header>
-          <h2 onClick={()=>this.showAll()}>{this.props.currentUser.displayName}</h2>
-          {this.props.currentUser?
-          <button onClick={this.props.signOut}>signOut</button>:
-          <button onClick={this.props.signIn}>signIn</button>}
+          <h2 onClick={()=>this.showAll()}>{currentUser.displayName}</h2>
+          {currentUser?
+          <button onClick={signOut}>signOut</button>:
+          <button onClick={signIn}>signIn</button>}
       </header>
     )
   }

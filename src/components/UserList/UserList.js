@@ -23,36 +23,38 @@ class UserList extends Component {
     }
 
     renderUsers= () =>{
-        const usersFromDB = Object.values(this.props.users);
-        return usersFromDB.map(user=>{
-            if (user.uid === this.props.user.uid) {
+        const {users, user} = this.props;
+        const usersFromDB = Object.values(users);
+        return usersFromDB.map(userFromDB=>{
+            if (userFromDB.uid === user.uid) {
                 //do not render logged in user
                 return null;
             } else {
             return <User
-                    key={user.uid}
-                    user={user}
+                    key={userFromDB.uid}
+                    user={userFromDB}
                     uidIntoState={this.uidIntoState}/>}
             })
       }
 
     render () {
+        const {user, users} = this.props;
         return (
             <Fragment>
-                {this.props.user?
+                {user?
                 <div
                     className="UserList-user"
-                    onClick={()=>this.uidIntoState(this.props.user.uid)}>
-                    <img src={this.props.user.photoURL}
-                    alt={this.props.user.displayName}
+                    onClick={()=>this.uidIntoState(user.uid)}>
+                    <img src={user.photoURL}
+                    alt={user.displayName}
                     width="100"/>
                     <p>
-                        {this.props.user.displayName}
+                        {user.displayName}
                     </p>
                 </div>
                 :
                 null}
-                {Object.values(this.props.users).length?
+                {Object.values(users).length?
                 <ul className="UserList-list">
                     {this.renderUsers()}
                 </ul>:
