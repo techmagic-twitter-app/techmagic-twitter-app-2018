@@ -1,0 +1,47 @@
+.Post{
+    border-radius: 12px;
+    background: rgb(19, 28, 37);
+    padding:2rem;
+    margin-bottom: 3rem;
+}
+
+.Post-user{
+    display: flex;
+    align-items: center;
+}
+
+.Post-like{
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.Post img{
+    margin-right: 1rem;
+    border-radius: 50px;
+}
+
+.Post .fas{
+    margin-right: 1rem;
+    transition: .2s;
+}
+
+.Post .fas:hover{
+   color: rgb(187, 26, 26);
+}
+
+.Post-delete{
+    margin: 0;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 0;
+    text-align: center;
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+    color: white;
+    background: rgb(29, 161, 242);
+    position: relative;
+    top: -245px;
+    right: -101%;
+}

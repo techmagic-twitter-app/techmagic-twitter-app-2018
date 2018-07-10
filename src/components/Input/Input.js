@@ -1,38 +1,81 @@
-// import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 
-// export default class Input extends Component {
+// Actions
+import {sendMessage} from '../../actions/posts';
+import {fetchUid} from '../../actions/uid';
+// Styles
+import './Input.css'
 
-//     state ={ 
-//         userInput:'',
-//         posts:[]
-//     }
+ class Input extends Component {
 
-//     setInput =(event)=>{
-//         event.preventDefault();
-//         this.setState({
-//             userInput:event.target.value
-//         })
-//     }
+state = { 
+    post:'',
+}
 
-//     sendMsg=()=>{
-//         let newPosts = [...this.state.posts];
-//       // Adding value to state
-//       newPosts.push(this.userInput);
-//       this.setState({
-//         posts:newPosts,
-//         userInput:''
-//       })
-//     }
 
-//   render() {
-//     return (
-//       <div>
-//             <input type="text"
-//             onChange={this.setInput}
-//             value={this.state.userInput}/>
-//             <button onClick={this.sendMsg}>Send</button>
-//         <div>{this.state.posts[0]}</div>
-//       </div>
-//     )
-//   }
-// }
+setInputVal=(event)=>{
+        this.setState({
+            post:event.target.value
+        })
+}
+
+
+sendMsg=(event)=>{
+    event.preventDefault();
+    const { user } = this.props;
+    const { post } = this.state;
+    if(post) {
+        this.props.sendMessage({
+            post:  post,
+            likes: 0,
+            date: Date.now(),
+            userId: user.uid,
+            userName: user.displayName,
+            userPhoto: user.photoURL
+        });
+        // clearing input
+        this.setState({
+            post:''
+        })
+    } else {
+        alert('put smth in!');
+    }
+}
+
+
+
+render() {
+    const { 
+        user , 
+        selectedUser
+    } = this.props;
+    return (
+        user && selectedUser===user.uid ?
+        <form
+            className="Input"
+            onSubmit={this.sendMsg}>
+            <input type="text"
+            onChange={this.setInputVal}
+            value={this.state.post} />
+            <button>Send</button>
+        </form> : null
+    );
+}
+
+
+}
+const mapStateToProps = state =>({
+    user: state.user,
+    selectedUser: state.uid
+});
+  
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    sendMessage,
+    fetchUid
+},dispatch);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Input);

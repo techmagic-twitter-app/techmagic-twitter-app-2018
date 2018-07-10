@@ -1,0 +1,11 @@
+.user-elem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.user-elem:last-child {
+    margin-bottom: 0;
+}
