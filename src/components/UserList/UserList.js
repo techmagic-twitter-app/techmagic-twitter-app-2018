@@ -19,8 +19,6 @@ class UserList extends Component {
     }
 
     uidIntoState = (uid) => {
-        //send uid into action
-        console.log('click', uid);
         this.props.fetchUid(uid);
     }
 
@@ -54,9 +52,11 @@ class UserList extends Component {
                 </div>
                 :
                 null}
+                {this.props.users.length?
                 <ul className="UserList-list">
                     {this.renderUsers()}
-                </ul>
+                </ul>:
+                null}
             </Fragment>
         );
     }
