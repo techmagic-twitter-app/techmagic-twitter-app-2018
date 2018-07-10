@@ -1,6 +1,6 @@
 {
-  "name": "react-redux-firebase",
-  "version": "0.1.0",
+  "name": "tm-project",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "firebase": "^5.2.0",

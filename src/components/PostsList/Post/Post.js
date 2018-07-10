@@ -12,7 +12,7 @@ import './Post.css';
 class Post extends Component {
 
   // Format date
-  dateForma = (data )=> moment(data).format('LLL');
+  dateFormat = (data )=> moment(data).format('LLL');
 
 
   // Remove post
@@ -38,7 +38,7 @@ class Post extends Component {
             <h2>{currentPost.userName}</h2>
           </div>
           <h3>{currentPost.post}</h3>
-          <p>{this.dateForma(currentPost.date)}</p>
+          <p>{this.dateFormat(currentPost.date)}</p>
           <p
           className="Post-like"
           onClick={()=>this.addLikeHandler(currentPost.postId, currentPost.likes)}>
